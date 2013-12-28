@@ -51,10 +51,10 @@
   background: #eee;
 }
 
-#footer-links a {
+#footer-links > a {
   margin-right: 30px;
 }
 
-#footer-share a {
+#footer-share > a, #footer-share > iframe {
   margin-right: 10px;
 }
