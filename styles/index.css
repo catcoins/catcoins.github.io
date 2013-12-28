@@ -1,0 +1,39 @@
+.btn {
+  transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  font-weight: 300;
+}
+
+.red {
+  color: #f66;
+}
+
+.jumbotron {
+  margin: 0px;
+  padding: 50px 15px;
+}
+
+.jumbotron h1 {
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.jumbotron p {
+  margin-bottom: 20px;
+}
+
+.section {
+  border-top: 1px solid #eee;
+  font-size: 17px;
+  font-weight: 300;
+  padding: 45px 15px;
+}
+
+.section h2 {
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0px;
+  margin-bottom: 20px;
+  padding: 0px;
+}
