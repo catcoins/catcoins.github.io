@@ -46,3 +46,11 @@
   margin-bottom: 20px;
   padding: 0px;
 }
+
+#footer {
+  background: #eee;
+}
+
+#footer a {
+  margin-right: 30px;
+}
