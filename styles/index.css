@@ -5,6 +5,11 @@
   font-weight: 300;
 }
 
+.btn-lg .fa {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
 .red {
   color: #f66;
 }
