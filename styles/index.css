@@ -28,6 +28,10 @@
   margin-bottom: 20px;
 }
 
+.jumbotron .pull-right {
+  margin: -30px 0px;
+}
+
 .section {
   border-top: 1px solid #eee;
   font-size: 17px;
