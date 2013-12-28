@@ -51,6 +51,10 @@
   background: #eee;
 }
 
-#footer a {
+#footer-links a {
   margin-right: 30px;
+}
+
+#footer-share a {
+  margin-right: 10px;
 }
