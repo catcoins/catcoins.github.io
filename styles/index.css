@@ -14,10 +14,13 @@ nav a i {
   margin-right: 7px;
 }
 
+a, .btn {
+  transition: background-color 0.2s, color 0.2s;
+  -moz-transition: background-color 0.2s, color 0.2s;
+  -webkit-transition: background-color 0.2s, color 0.2s;
+}
+
 .btn {
-  transition: background-color 0.2s;
-  -moz-transition: background-color 0.2s;
-  -webkit-transition: background-color 0.2s;
   font-weight: 300;
 }
 
