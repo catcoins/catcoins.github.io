@@ -1,3 +1,19 @@
+body {
+  padding-top: 50px;
+}
+
+.navbar-fixed-top {
+  position: absolute;
+}
+
+.navbar-brand > img {
+  margin: -18px 5px -15px 0px;
+}
+
+nav a i {
+  margin-right: 7px;
+}
+
 .btn {
   transition: background-color 0.2s;
   -moz-transition: background-color 0.2s;
@@ -53,6 +69,10 @@
 
 #footer-links > a {
   margin-right: 30px;
+}
+
+#footer-links > a > i {
+  margin-right: 9px;
 }
 
 #footer-share > a, #footer-share > iframe {
