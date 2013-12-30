@@ -15,12 +15,16 @@ function getTrade() {
 }
 
 function update() {
-  var request = getTrade();
-  request.open("GET", "http://codingbean.com/cat/cat.php", true);
-  request.send(null);
-  request.onreadystatechange = function() {
-    if (request.readyState == 4) {
-      document.getElementById('trade').innerHTML = request.responseText;
-    }
-  };
+  try {
+    var request = getTrade();
+    request.open("GET", "http://codingbean.com/cat/cat.php", true);
+    request.send(null);
+    request.onreadystatechange = function() {
+      if (request.readyState == 4) {
+        document.getElementById('trade').innerHTML = request.responseText;
+      }
+    };
+  } catch (error) {
+    // looks like the server is down or your internet has fleas
+  }
 }
