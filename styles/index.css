@@ -81,3 +81,8 @@ a, .btn {
 #footer-share > a, #footer-share > iframe {
   margin-right: 10px;
 }
+
+.source {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
