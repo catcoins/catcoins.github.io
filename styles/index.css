@@ -20,6 +20,10 @@ a, .btn {
   -webkit-transition: background-color 0.2s, color 0.2s;
 }
 
+strong {
+  font-weight: 500;
+}
+
 .btn {
   font-weight: 300;
 }
