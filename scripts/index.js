@@ -42,7 +42,7 @@ var updateFork = function () {
       if (request.readyState == 4 && request.responseText && !isNaN(request.responseText)) {
         var blocks = Math.ceil(20290 - parseInt(request.responseText, 10), 0);
         if (!blocks) { return; }
-        document.getElementById('fork-blocks').innerHTML = ' in ' + blocks + ' blocks';
+        document.getElementById('fork-blocks').innerHTML = ' in ' + blocks + ' block' + (blocks === 1 ? '' : 's');
         var mins = blocks * 90, hours = Math.floor(mins / 60); mins = mins - hours * 60;
         document.getElementById('fork-time').innerHTML = 'in ~' + hours + ' hour' + (hours === 1 ? '' : 's') + ', ' + mins + ' minute' + (mins === 1 ? '' : 's') + ' ';
       }
