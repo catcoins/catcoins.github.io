@@ -66,6 +66,11 @@ a, .btn {
   padding: 0px;
 }
 
+.section h2 > small {
+  font-size: 20px;
+  font-weight: 300;
+}
+
 #footer {
   background: #eee;
 }
