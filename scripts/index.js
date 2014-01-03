@@ -39,7 +39,7 @@ var updateFork = function () {
     request.open('GET', 'http://catchain.info/chain/Catcoin/q/getblockcount', true);
     request.send(null);
     request.onreadystatechange = function () {
-      if (request.readyState == 4) {
+      if (request.readyState == 4 && request.responseText && !isNaN(request.responseText)) {
         document.getElementById('fork-blocks').innerHTML = ' in ' + Math.ceil(20290 - parseInt(request.responseText, 10), 0) + ' blocks';
       }
     };
