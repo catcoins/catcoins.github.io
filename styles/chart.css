@@ -33,7 +33,7 @@ path {
 }
 
 .x.axis line {
-  stroke: lightgrey;
+  stroke: #eee;
 }
 
 .x.axis .minor {
