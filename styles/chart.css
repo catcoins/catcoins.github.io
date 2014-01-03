@@ -1,0 +1,87 @@
+.section h2 {
+  margin-bottom: 20px;
+}
+
+.section .values {
+  margin-bottom: 20px;
+}
+
+.section .values > span {
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align:  middle;
+}
+
+.section .values > span > span {
+  font-weight: 500;
+}
+
+.chart {
+  border: 1px solid #eee;
+  font-size: 13px;
+  height: 600px;
+  width: 900px;
+}
+
+path {
+  stroke-width: 1;
+  fill: none;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.x.axis line {
+  stroke: lightgrey;
+}
+
+.x.axis .minor {
+  stroke-opacity: .5;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.x.axis text {
+  font-size: 14;
+}
+
+.y.axis line, .y.axis path {
+  fill: none;
+  stroke: #000;
+}
+
+.y.axis text {
+  font-size: 14;
+}
+
+.text {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#hashdiff-hash {
+  color: steelblue;
+}
+
+#hashdiff-diff {
+  color: orange;
+}
+
+#hashdiff-chart .data1 {
+  stroke: steelblue;
+}
+
+#hashdiff-chart .data2 {
+  stroke: orange;
+}
+
+#hashdiff-chart .textLeft {
+  fill: steelblue;
+}
+
+#hashdiff-chart .textRight {
+  fill: orange;
+}

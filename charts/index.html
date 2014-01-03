@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Catcoin</title>
+  <meta name="description" content="Catcoin charts: Bitcoin in scrypt, with more meow">
+  <meta name="keywords" content="Catcoin,charts,graphs,cryptocurrency,scrypt,meow">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/chart.css">
+  <link rel="shortcut icon" href="../images/favicon.ico" type="image/png">
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-36765833-4', 'catcoins.biz');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="http://catcoins.biz">
+        <img src="../images/catcoin-glyph-aaaaaa.png" alt="" height="35">
+        Catcoin
+      </a>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://catcoins.biz"><i class="fa fa-info-circle"></i>Catcoins.biz</a></li>
+        <li class="active"><a href="http://catcoins.biz/charts"><i class="fa fa-bar-chart-o"></i>Charts</a></li>
+        <li><a href="http://catchain.info"><i class="fa fa-chain"></i>Blockchain</a></li>
+        <li><a href="http://catcoins.biz/address" target="_blank"><i class="fa fa-qrcode"></i>Wallets</a></li>
+      </ul>
+    </div>
+  </nav>
+  <a href="https://github.com/catcoins/catcoins.github.io" target="_blank"><img style="position: absolute; top: 50px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+  <div class="section" id="hashdiff"><div class="container">
+    <h2>Hashrate &amp; difficulty</h2>
+    <p class="values">
+      <span>Current hashrate: <span id="hashdiff-hash">&hellip;</span></span>
+      <span>Current difficulty: <span id="hashdiff-diff">&hellip;</span></span>
+    </p>
+    <div class="chart" id="hashdiff-chart"></div>
+  </div></div>
+  <div class="section" id="footer"><div class="container">
+    <div class="pull-right" id="footer-share">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-related="CatcoinOfficial" data-lang="en" data-url="http://catcoins.biz" data-via="CatcoinOfficial" data-text="Catcoin: Bitcoin in scrypt, with more meow :3" data-count="none">Tweet</a>
+      <div class="fb-like" data-href="http://catcoins.biz" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+    </div>
+    <div id="footer-links">
+      <a href="http://catcoins.biz"><i class="fa fa-info-circle"></i>Catcoins.biz</a>
+      <a href="http://catchain.info"><i class="fa fa-chain"></i>Blockchain</a>
+      <a href="http://catcoins.biz/address" target="_blank"><i class="fa fa-qrcode"></i>Wallets</a>
+      <a href="http://catchain.info/address/9XZeUtaaQNyUmHQGF7xBm8n3o553kunJYb"><i class="fa fa-heart"></i>Donate</a>
+    </div>
+  </div></div>
+  <div id="fb-root"></div>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.min.js"></script>
+  <script type="text/javascript" src="../scripts/charts.js"></script>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=424800717642946";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</body>
+</html>
