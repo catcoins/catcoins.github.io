@@ -25,7 +25,7 @@ var getData = function (url, next) {
 
 var networkHashrate = 0;
 var hashrateLimit = 200;
-var hashrateAvg = 7;
+var hashrateAvg = 5;
 
 var drawHashrateChart = function (data) {
   var raw = data.slice(data.indexOf('START DATA') + 10).trim().split('\n').map(function (v) { return v.split(',').map(function (w) { return parseFloat(w.trim()); }) });
