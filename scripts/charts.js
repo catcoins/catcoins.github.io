@@ -23,8 +23,9 @@ var getData = function (url, next) {
   } catch (e) {}
 };
 
+var networkHashrate = 0;
 var hashrateLimit = 200;
-var hashrateAvg = 5;
+var hashrateAvg = 7;
 
 var drawHashrateChart = function (data) {
   var raw = data.slice(data.indexOf('START DATA') + 10).trim().split('\n').map(function (v) { return v.split(',').map(function (w) { return parseFloat(w.trim()); }) });
@@ -51,6 +52,7 @@ var drawHashrateChart = function (data) {
     hashrate.push(Math.round(v[7] / 1000000));
   });
 
+  networkHashrate = hashrate.slice(-1)[0];
   document.getElementById('hashdiff-hash').innerHTML = hashrate.slice(-1)[0] + ' MH/s';
   document.getElementById('hashdiff-diff').innerHTML = Math.round(raw.slice(-1)[0][4] * 10) / 10;
   document.getElementById('hashdiff-block').innerHTML = Math.round(raw.slice(-1)[0][0]);
@@ -85,6 +87,11 @@ var drawPoolsChart = function (data) {
     return b.hashrate - a.hashrate;
   });
 
+  data.push({
+      name: 'Unknown'
+    , hashrate: Math.round((networkHashrate - data.reduce(function (p, c) { return p + c.hashrate; }, 0)) * 10) / 10
+  });
+
   var getAngle = function (d) {
     var ang = (180 / Math.PI * (d.startAngle + d.endAngle) / 2 - 90);
     return (ang > 90) ? (180 + ang) : ang;
@@ -96,7 +103,7 @@ var drawPoolsChart = function (data) {
 
   var html = '';
   data.forEach(function (v, i) {
-    html += '<span>' + v.name + ': <span style="color: ' + color(i) + '">' + v.hashrate + ' MH/s</span> <a href="' + v.url + '" target="_blank"><i class="fa fa-external-link"></i></a></span>';
+    html += '<span>' + v.name + ': <span style="color: ' + (i === data.length - 1 ? '#bbb' : color(i)) + '">' + v.hashrate + ' MH/s</span> <a href="' + v.url + '" target="_blank"><i class="fa fa-external-link"></i></a></span>';
   });
   document.getElementById('pools-values').innerHTML = html;
 
@@ -107,11 +114,14 @@ var drawPoolsChart = function (data) {
     .append('g').attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
   var g = svg.selectAll('.arc').data(pie(data)).enter().append('g').attr('class', 'arc');
-  g.append('path').attr('d', arc).style('fill', function (d, i) { return color(i); });
-  g.append('text').attr('transform', function (d) { return 'translate(' + arc.centroid(d) + ') rotate(' + getAngle(d) + ')'; }).attr('dy', '.35em').style('text-anchor', 'middle').text(function (d, i) { return data[i].name; });
+  g.append('path').attr('d', arc).style('fill', function (d, i) { return (i === data.length - 1) ? '#f6f6f6' : color(i); });
+  g.append('text').attr('transform', function (d) { return 'translate(' + arc.centroid(d) + ') rotate(' + getAngle(d) + ')'; }).attr('class', function (d, i) { return (i === data.length - 1) ? 'unknown' : ''; }).attr('dy', '.35em').style('text-anchor', 'middle').text(function (d, i) { return data[i].name; });
 };
 
-getData('http://catchain.info/chain/Catcoin/q/nethash/1/-' + hashrateLimit, drawHashrateChart);
-getData('http://api.catcoins.biz/pools', drawPoolsChart);
+getData('http://catchain.info/chain/Catcoin/q/nethash/1/-' + hashrateLimit, function (data) {
+  drawHashrateChart(data);
+  getData('http://api.catcoins.biz/pools', drawPoolsChart);
+});
+
 
 })();

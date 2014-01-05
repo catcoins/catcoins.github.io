@@ -118,6 +118,10 @@ path {
   font-weight: 300;
 }
 
+#pools-chart text.unknown {
+  fill: #bbb;
+}
+
 #pools .values a {
   color: #bbb;
   font-size: 14px;
