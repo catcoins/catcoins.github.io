@@ -108,7 +108,7 @@ var drawPoolsChart = function (data) {
   document.getElementById('pools-values').innerHTML = html;
 
   var arc = d3.svg.arc().outerRadius(radius - 10).innerRadius(0);
-  var pie = d3.layout.pie().value(function (d) { return d.hashrate; });
+  var pie = d3.layout.pie().sort(null).value(function (d) { return d.hashrate; });
 
   var svg = d3.select('#pools-chart').append('svg').attr('width', width).attr('height', height)
     .append('g').attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
