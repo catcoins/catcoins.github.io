@@ -63,27 +63,35 @@ path {
 }
 
 #hashdiff-hash {
-  color: steelblue;
+  color: #1f77b4;
 }
 
 #hashdiff-diff {
-  color: orange;
+  color: #ff7f0e;
+}
+
+#hashdiff-block {
+  color: #2ca02c;
+}
+
+#hashdiff-change {
+  color: #d62728;
 }
 
 #hashdiff-chart .data1 {
-  stroke: steelblue;
+  stroke: #1f77b4;
 }
 
 #hashdiff-chart .data2 {
-  stroke: orange;
+  stroke: #ff7f0e;
 }
 
 #hashdiff-chart .textLeft {
-  fill: steelblue;
+  fill: #1f77b4;
 }
 
 #hashdiff-chart .textRight {
-  fill: orange;
+  fill: #ff7f0e;
 }
 
 #pools-chart text {
