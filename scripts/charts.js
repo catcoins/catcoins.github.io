@@ -58,7 +58,7 @@ var drawHashrateChart = function (data) {
   document.getElementById('hashdiff-block').innerHTML = Math.round(raw.slice(-1)[0][0]);
   var change = 36 * Math.ceil((raw.slice(-1)[0][0] / 36) + 0.01) - Math.round(raw.slice(-1)[0][0]);
   document.getElementById('hashdiff-change').innerHTML = change + ' block' + (change === 1 ? '' : 's');
-  document.getElementById('hashdiff-next').innerHTML = Math.round(600 * hashrate.slice(-1)[0] * 10000000 / 4294967296) / 10;
+  document.getElementById('hashdiff-next').innerHTML = Math.round(raw.slice(-1)[0][4] * (change ? 1 : 10 * (36 - change) / ((raw[raw.length - 1][1] - raw[raw.length - 35 + change][1]) / 60)) * 10) / 10;
 
   var x = d3.time.scale().domain([d3.min(time), d3.max(time)]).range([0, width]);
   var y1 = d3.scale.linear().domain([0, Math.max(d3.min(hashrate), 3000)]).range([height, 0]);
