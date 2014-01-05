@@ -36,7 +36,7 @@ var drawHashrateChart = function (data) {
 
   for (var i = 0; i < Math.floor(hashrateLimit / hashrateAvg); i++) {
     for (var j = 0; j < 8; j++) {
-      temp[j] = avg.map(function (n) { return raw[hashrateLimit - hashrateAvg * i - n][j]; }).sort(function (a, b) { return a - b; })[2];
+      temp[j] = avg.map(function (n) { return raw[hashrateLimit - hashrateAvg * i - n][j]; }).sort(function (a, b) { return a - b; })[Math.floor(hashrateAvg / 2)];
     }
     data.push(temp.slice(0));
   }
