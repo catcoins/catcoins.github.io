@@ -112,6 +112,6 @@ var drawPoolsChart = function (data) {
 };
 
 getData('http://catchain.info/chain/Catcoin/q/nethash/1/-' + hashrateLimit, drawHashrateChart);
-getData('http://api.catcoins.biz', drawPoolsChart);
+getData('http://api.catcoins.biz/pools', drawPoolsChart);
 
 })();
