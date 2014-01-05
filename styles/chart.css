@@ -78,6 +78,10 @@ path {
   color: #d62728;
 }
 
+#hashdiff-next {
+  color: #9467bd;
+}
+
 #hashdiff-chart .data1 {
   stroke: #1f77b4;
 }

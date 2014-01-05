@@ -23,25 +23,40 @@ var getData = function (url, next) {
   } catch (e) {}
 };
 
+var hashrateLimit = 200;
+var hashrateAvg = 5;
+
 var drawHashrateChart = function (data) {
-  data = data.slice(data.indexOf('START DATA') + 10).trim().split('\n').map(function (v) { return v.split(',').map(function (w) { return parseFloat(w.trim()); }) });
+  var raw = data.slice(data.indexOf('START DATA') + 10).trim().split('\n').map(function (v) { return v.split(',').map(function (w) { return parseFloat(w.trim()); }) });
+  data = [];
+  var temp = [];
+
+  var avg = [];
+  for (var i = 1; i <= hashrateAvg; i++) { avg.push(i); }
+
+  for (var i = 0; i < Math.floor(hashrateLimit / hashrateAvg); i++) {
+    for (var j = 0; j < 8; j++) {
+      temp[j] = avg.map(function (n) { return raw[hashrateLimit - hashrateAvg * i - n][j]; }).sort(function (a, b) { return a - b; })[2];
+    }
+    data.push(temp.slice(0));
+  }
 
   var height = 500, width = 700, timeStep = 60000;
 
-  var block = [], time = [], difficulty = [], hashrate = [];
+  var time = [], difficulty = [], hashrate = [];
   data.forEach(function (v, i) {
-    block.push(v[0]);
     time.push(new Date(v[1] * 1000));
-    difficulty.push(v[4]);
+    difficulty.push(Math.round(v[4] * 10) / 10);
     if (v[7] === Infinity) { v[7] = ((data[i - 1] || data[i + 1])[7] + (data[i + 1] || data[i - 1])[7]) / 2; }
     hashrate.push(Math.round(v[7] / 1000000));
   });
 
   document.getElementById('hashdiff-hash').innerHTML = hashrate.slice(-1)[0] + ' MH/s';
-  document.getElementById('hashdiff-diff').innerHTML = difficulty.slice(-1)[0];
-  document.getElementById('hashdiff-block').innerHTML = Math.round(block.slice(-1)[0]);
-  var change = 36 * Math.ceil((block.slice(-1)[0] / 36) + 0.01) - Math.round(block.slice(-1)[0]);
+  document.getElementById('hashdiff-diff').innerHTML = Math.round(raw.slice(-1)[0][4] * 10) / 10;
+  document.getElementById('hashdiff-block').innerHTML = Math.round(raw.slice(-1)[0][0]);
+  var change = 36 * Math.ceil((raw.slice(-1)[0][0] / 36) + 0.01) - Math.round(raw.slice(-1)[0][0]);
   document.getElementById('hashdiff-change').innerHTML = change + ' block' + (change === 1 ? '' : 's');
+  document.getElementById('hashdiff-next').innerHTML = Math.round(600 * hashrate.slice(-1)[0] * 10000000 / 4294967296) / 10;
 
   var x = d3.time.scale().domain([d3.min(time), d3.max(time)]).range([0, width]);
   var y1 = d3.scale.linear().domain([0, Math.max(d3.min(hashrate), 3000)]).range([height, 0]);
@@ -96,7 +111,7 @@ var drawPoolsChart = function (data) {
   g.append('text').attr('transform', function (d) { return 'translate(' + arc.centroid(d) + ') rotate(' + getAngle(d) + ')'; }).attr('dy', '.35em').style('text-anchor', 'middle').text(function (d, i) { return data[i].name; });
 };
 
-getData('http://catchain.info/chain/Catcoin/q/nethash/2/-200', drawHashrateChart);
+getData('http://catchain.info/chain/Catcoin/q/nethash/1/-' + hashrateLimit, drawHashrateChart);
 getData('http://api.catcoins.biz', drawPoolsChart);
 
 })();
