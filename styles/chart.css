@@ -85,3 +85,18 @@ path {
 #hashdiff-chart .textRight {
   fill: orange;
 }
+
+#pools-chart text {
+  fill: white;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+#pools .values a {
+  color: #bbb;
+  font-size: 14px;
+}
+
+#pools .values a:hover, #pools .values a:active {
+  color: #888;
+}

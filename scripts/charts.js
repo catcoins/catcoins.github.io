@@ -62,6 +62,38 @@ var drawHashrateChart = function (data) {
   chart.append('path').attr('d', l2(difficulty)).attr('class', 'data2');
 };
 
+var drawPoolsChart = function (data) {
+  data = JSON.parse(data).sort(function (a, b) {
+    return b.hashrate - a.hashrate;
+  });
+
+  var getAngle = function (d) {
+    var ang = (180 / Math.PI * (d.startAngle + d.endAngle) / 2 - 90);
+    return (ang > 90) ? (180 + ang) : ang;
+    return (ang > 180) ? 180 - ang : ang;
+  };
+
+  var height = 600, width = 900, radius = 275;
+  var color = d3.scale.category20();
+
+  var html = '';
+  data.forEach(function (v, i) {
+    html += '<span>' + v.name + ': <span style="color: ' + color(i) + '">' + v.hashrate + ' MH/s</span> <a href="' + v.url + '" target="_blank"><i class="fa fa-external-link"></i></a></span>';
+  });
+  document.getElementById('pools-values').innerHTML = html;
+
+  var arc = d3.svg.arc().outerRadius(radius - 10).innerRadius(0);
+  var pie = d3.layout.pie().value(function (d) { return d.hashrate; });
+
+  var svg = d3.select('#pools-chart').append('svg').attr('width', width).attr('height', height)
+    .append('g').attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+
+  var g = svg.selectAll('.arc').data(pie(data)).enter().append('g').attr('class', 'arc');
+  g.append('path').attr('d', arc).style('fill', function (d, i) { return color(i); });
+  g.append('text').attr('transform', function (d) { return 'translate(' + arc.centroid(d) + ') rotate(' + getAngle(d) + ')'; }).attr('dy', '.35em').style('text-anchor', 'middle').text(function (d, i) { return data[i].name; });
+};
+
 getData('http://catchain.info/chain/Catcoin/q/nethash/2/-200', drawHashrateChart);
+getData('http://api.catcoins.biz', drawPoolsChart);
 
 })();
