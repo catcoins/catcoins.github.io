@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
   <link rel="stylesheet" href="../styles/index.css">
   <link rel="stylesheet" href="../styles/chart.css">
-  <link rel="shortcut icon" href="../images/favicon.ico" type="image/png">
+  <link rel="shortcut icon" href="../images/favicon.png" type="image/png">
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -24,42 +24,19 @@
   <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <a class="navbar-brand" href="http://catcoins.biz">
-        <img src="../images/catcoin-glyph-aaaaaa.png" alt="" height="35">
+        <img src="../images/catcoin-glyph-a.png" alt="" height="35">
         Catcoin
       </a>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="http://catcoins.biz"><i class="fa fa-info-circle"></i>Catcoins.biz</a></li>
-        <li class="active"><a href="http://catcoins.biz/charts"><i class="fa fa-bar-chart-o"></i>Charts</a></li>
-        <li><a href="http://catchain.info"><i class="fa fa-chain"></i>Blockchain</a></li>
+        <li><a href="http://www.catstat.info/"><i class="fa fa-bar-chart-o"></i>Charts</a></li>
+        <li><a href="http://blocks.catstat.info:2750/chain/Catcoin"><i class="fa fa-chain"></i>Blockchain</a></li>
         <li><a href="http://catcoins.biz/address" target="_blank"><i class="fa fa-qrcode"></i>Wallets</a></li>
       </ul>
     </div>
   </nav>
   <a href="https://github.com/catcoins/catcoins.github.io" target="_blank"><img style="position: absolute; top: 50px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-  <div class="section" id="charts-nav"><div class="container">
-    <ul class="nav nav-pills">
-      <li class="disabled"><a href="#">Charts:</a></li>
-      <li><a href="#hashdiff">Hashrate &amp; difficulty</a></li>
-      <li><a href="#pools">Pools</a></li>
-    </ul>
-  </div></div>
-  <div class="section" id="hashdiff"><div class="container">
-    <h2>Hashrate &amp; difficulty</h2>
-    <p class="values">
-      <span>Estimated network hashrate: <span id="hashdiff-hash">&hellip;</span></span>
-      <span>Current difficulty: <span id="hashdiff-diff">&hellip;</span></span>
-      <br>
-      <span>Current block: <span id="hashdiff-block">&hellip;</span></span>
-      <span>Difficulty changes in: <span id="hashdiff-change">&hellip;</span></span>
-      <span>Estimated next difficulty: <span id="hashdiff-next">&hellip;</span></span>
-    </p>
-    <div class="chart" id="hashdiff-chart"></div>
-  </div></div>
-  <div class="section" id="pools"><div class="container">
-    <h2>Pools</h2>
-    <p class="values" id="pools-values"></p>
-    <div class="chart" id="pools-chart"></div>
-  </div></div>
+  
   <div class="section" id="footer"><div class="container">
     <div class="pull-right" id="footer-share">
       <a href="https://twitter.com/share" class="twitter-share-button" data-related="CatcoinOfficial" data-lang="en" data-url="http://catcoins.biz" data-via="CatcoinOfficial" data-text="Catcoin: Bitcoin in scrypt, with more meow :3" data-count="none">Tweet</a>
